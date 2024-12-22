@@ -8,23 +8,35 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- 공통 부모 요소 -->
     <div id="phone_size">
-      <div id ="page1_header">HAPPY<br> 2025 YEAR
-      </div>
-      
-      <div class="page1_square_position">
-        <div id="basic_square">
-          <div id="page1_square_header">새해 말씀 뽑기</div>
-          <div id="page1_square_mid">
-            당신에게 주시는 따스한 말씀을<br />
-            마음 깊이 품어보세요.
+      <!-- 첫 번째 페이지 -->
+      <div id="page1">
+        <div id="page1_header">
+          HAPPY<br />
+          2025 YEAR
+        </div>
+        <div class="page1_square_position">
+          <div id="basic_square">
+            <div id="page1_square_header">새해 말씀 뽑기</div>
+            <div id="page1_square_mid">
+              당신에게 주시는 따스한 말씀을<br />
+              마음 깊이 품어보세요.
+            </div>
+            <div id="page1_button">말씀 뽑기</div>
           </div>
-          <div id="page1_button">말씀 뽑기</div>
+        </div>
+        <div id="page1_bottom_text">지금까지 1,452명이 새해를 말씀으로 준비했어요.</div>
+      </div>
+
+      <!-- 두 번째 페이지 -->
+      <div id="page2" style="display: none">
+        <div class="loading-box"></div>
+        <div class="blinkCursor page2_header">
+          내게 주신 말씀을 찾는 중 입니다.<span class="blinkCursor"></span>
         </div>
       </div>
 
-      <div id ="page1_bottom_text"> 지금까지 1,452명이 새해를 말씀으로 준비했어요.</div>
-      
-    </div>
+    <script src="script.js"></script>
   </body>
 </html>

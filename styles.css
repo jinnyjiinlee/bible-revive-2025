@@ -106,3 +106,106 @@ body {
   font-size: 15px;
   font-weight: 200;
 }
+
+/* 두 번째 페이지 */
+.page2_header {
+  text-align: center;
+  padding: 1px 0 0 0;
+
+  font-size: 16px;
+  color: #555555;
+  font-weight: 600;
+}
+
+.loading-box:after,
+.loading-box:before {
+  content: '';
+}
+.loading-box,
+.loading-box:after,
+.loading-box:before {
+  width: 50px;
+  position: absolute;
+  left: 0;
+}
+.loading-box {
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  z-index: 10000;
+}
+.loading-box:before {
+  height: 5px;
+  background: #000;
+  opacity: 0.1;
+  top: 59px;
+  border-radius: 50%;
+  animation: shadow 0.5s linear infinite;
+}
+.loading-box:after {
+  height: 50px;
+  background: #b39ddb;
+  animation: animate 0.8s linear infinite;
+  top: 0;
+  border-radius: 3px;
+}
+@keyframes animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+@keyframes shadow {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+div.blinkCursor {
+  display: table;
+  margin: auto;
+  right: 0;
+  top: 42px;
+  bottom: 0;
+  position: relative;
+}
+span.blinkCursor {
+  animation-name: blinkCursor;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-duration: 0.75s;
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  margin-left: 7px;
+  box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+  background: rgba(0, 0, 0, 1);
+}
+@keyframes blinkCursor {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
