@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: f0f0f0;
+}
+
+#phone_size {
+  position: relative;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+
+  border-radius: 40px;
+
+  width: 375px;
+  height: 667px;
+  background: linear-gradient(135deg, #e5f2ff 20%, #ffe6f2 100%);
+}
+
+#basic_square {
+  display: flex; /* 내부 콘텐츠 정렬을 위해 Flexbox 사용 */
+  flex-direction: column; /* 콘텐츠를 위에서 아래로 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+
+  width: 278px;
+  height: 250px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  position: absolute;
+  top: 50%; /* 부모 요소의 50% 위치 */
+  left: 50%; /* 부모 요소의 50% 위치*/
+  transform: translate(-50%, -50%); /* 정 중앙으로 이동*/
+}
+
+#page1_header {
+  position: relative;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #555555;
+
+  letter-spacing: 10px;
+}
+
+.page1_square_position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#page1_square_header {
+  position: relative;
+  top: 34px;
+  font-size: 32px;
+  text-align: center;
+  color: #444444;
+  font-weight: 600;
+}
+
+#page1_square_mid {
+  position: relative;
+  top: 70px;
+
+  font-size: 13px;
+  font-weight: 100;
+  text-align: center;
+}
+
+#page1_button {
+  position: absolute;
+
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 117px;
+  height: 38px;
+  background-color: #bba4f8;
+
+  font-size: 16px;
+
+  color: white;
+  border-radius: 30px;
+
+  display: flex; /* flex활성화 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+#page1_bottom_text {
+  position: absolute;
+  bottom: 50px;
+
+  color: black;
+  font-size: 15px;
+  font-weight: 200;
+}
