@@ -209,3 +209,32 @@ span.blinkCursor {
     opacity: 0;
   }
 }
+
+/* 세 번째 페이지 */
+#page3_header {
+  font-size: 23px;
+  font-weight: 500;
+
+  margin: 300px 0 0 0;
+  text-align: center;
+
+  color: #444444;
+}
+
+.fade-in {
+  font-size: medium;
+  position: relative;
+  overflow: hidden;
+  animation: fade-in 1.5s ease-in-out;
+}
+
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

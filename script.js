@@ -21,3 +21,15 @@ setTimeout(() => {
   // 메시지 표시
   resultMessage.style.display = 'block';
 }, 5000); // 5초 후 실행
+
+// 두 번째 페이지 -> 세 번째 페이지 전환
+setTimeout(() => {
+  const page2 = document.getElementById('page2');
+  const page3 = document.getElementById('page3');
+
+  // 두 번째 페이지 숨기기
+  page2.style.display = 'none';
+
+  // 세 번째 페이지 보이기
+  page3.style.display = 'flex';
+}, 5000);
