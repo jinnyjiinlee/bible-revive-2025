@@ -1,29 +1,6 @@
 // 카카오톡 공유하기 openApi
 Kakao.init('41e44d0a8040b479d200df8dd89fd8f4');
 
-Kakao.Share.createDefaultButton({
-  container: '#share_btn',
-  objectType: 'feed',
-  content: {
-    title: '2025 말씀 뽑기',
-    description: '당신에게 주는 새해의 말씀',
-    imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImage.png',
-    link: {
-      mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-      webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-    },
-  },
-  buttons: [
-    {
-      title: '2025년 나에게 주신 말씀은?',
-      link: {
-        mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-        webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-      },
-    },
-  ],
-});
-
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
@@ -490,20 +467,20 @@ document.getElementById('share_btn').addEventListener('click', () => {
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
-      title: '오늘의 말씀',
-      description: '이 말씀으로 새해를 준비하세요!',
-      imageUrl: 'https://glistening-bonbon-a418ef.netlify.app/images/example.png', // 이미지 URL
+      title: '2025 말씀 뽑기',
+      description: '당신에게 주는 새해의 말씀',
+      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImage.png',
       link: {
-        mobileWebUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
-        webUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
+        mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+        webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
       },
     },
     buttons: [
       {
-        title: '자세히 보기',
+        title: '2025년 나에게 주신 말씀은?',
         link: {
-          mobileWebUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
-          webUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
+          mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+          webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
         },
       },
     ],
