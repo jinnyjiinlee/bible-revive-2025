@@ -506,19 +506,22 @@ document.getElementById('share_btn').addEventListener('click', () => {
 
   // 2) 카카오톡 공유 (sendDefault)
   Kakao.Link.sendDefault({
-    objectType: 'text',
-    text: `오늘의 말씀\n\n${verseText}\n\n- ${verseRef}`,
-    link: {
-      mobileWebUrl: 'https://my-service.com',
-      webUrl: 'https://my-service.com',
+    objectType: 'feed',
+    content: {
+      title: '오늘의 말씀',
+      description: '이 말씀으로 새해를 준비하세요!',
+      imageUrl: 'https://glistening-bonbon-a418ef.netlify.app/images/example.png', // 이미지 URL
+      link: {
+        mobileWebUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
+        webUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
+      },
     },
-    // 필요시 버튼 추가
     buttons: [
       {
         title: '자세히 보기',
         link: {
-          mobileWebUrl: 'https://my-service.com',
-          webUrl: 'https://my-service.com',
+          mobileWebUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
+          webUrl: 'https://glistening-bonbon-a418ef.netlify.app/',
         },
       },
     ],
