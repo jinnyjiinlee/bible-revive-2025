@@ -37,16 +37,24 @@ body {
   transform: translate(-50%, -50%); /* 정 중앙으로 이동*/
 }
 
+/* 페이지1 */
+
 #page1_header {
   position: relative;
   top: 80px;
   width: 100%;
   text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  color: #555555;
 
-  letter-spacing: 10px;
+  font-family: 'Pretendard', sans-serif;
+  line-height: 1.2; /* 가독성을 위해 줄 간격 추가 */
+
+  font-size: 36px;
+  font-weight: 100;
+  color: #6d9dc5;
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+  /* color: #555555; */
 }
 
 .page1_square_position {
@@ -60,15 +68,22 @@ body {
 #page1_square_header {
   position: relative;
   top: 34px;
+
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700 !important;
+
   font-size: 32px;
   text-align: center;
-  color: #444444;
+  color: #444;
   font-weight: 600;
 }
 
 #page1_square_mid {
   position: relative;
   top: 70px;
+
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 200 !important;
 
   font-size: 13px;
   font-weight: 100;
@@ -77,44 +92,99 @@ body {
 
 #page1_button {
   position: absolute;
-
   bottom: 35px;
   left: 50%;
-  transform: translateX(-50%);
+  /* 가로 중앙 + y축 이동 없이 */
+  transform: translate(-50%, 0);
 
-  width: 117px;
+  /* 버튼 크기/모양 */
+  min-width: 70px; /* 원하면 폭을 좀 늘림 */
   height: 38px;
+  padding: 0 16px; /* 좌우 여백 */
+
   background-color: #bba4f8;
 
-  font-size: 16px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400 !important;
 
+  font-size: 16px;
   color: white;
   border-radius: 30px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
 
-  display: flex; /* flex활성화 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  /* 부드러운 전환 */
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+#page1_button:hover {
+  background-color: #a48de0;
+  /* x축 중앙 그대로 유지, y축만 -2px */
+  transform: translate(-50%, -2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 #page1_bottom_text {
+  white-space: nowrap;
   position: absolute;
-  bottom: 50px;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  color: black;
-  font-size: 15px;
-  font-weight: 200;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 100 !important;
+
+  font-size: 14px;
+  font-weight: 350;
+  color: #333;
 }
 
-/* 두 번째 페이지 */
+#service_introduction_link {
+  position: absolute;
+  bottom: 30px; /* 페이지 하단에서의 위치 조정 */
+  left: 75%;
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
+
+}
+
+#service_introduction_link a {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #838789; /* 텍스트 색상 */
+  text-decoration: underline; /* 밑줄 추가 */
+  cursor: pointer;
+  transition: color 0.3s ease; /* 호버 시 부드러운 색상 전환 */
+}
+
+#service_introduction_link a:hover {
+  color: #4b85a5; /* 호버 시 텍스트 색상 변경 */
+}
+
+/* 페이지 2 */
 .page2_header {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
   text-align: center;
   padding: 1px 0 0 0;
 
-  font-size: 16px;
-  color: #555555;
-  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 300;
+
+  letter-spacing: 0.3px;
+
+  font-size: 17px;
+  line-height: 2;
+  color: #444;
 }
 
 .loading-box:after,
@@ -196,7 +266,7 @@ span.blinkCursor {
   animation-duration: 0.75s;
   display: inline-block;
   width: 4px;
-  height: 18px;
+  height: 17px;
   margin-left: 7px;
   box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
   background: rgba(0, 0, 0, 1);
@@ -210,25 +280,104 @@ span.blinkCursor {
   }
 }
 
-/* 세 번째 페이지 */
+/* 페이지3*/
+#page3 {
+  position: absolute; /* 부모 요소 #phone_size를 기준으로 확장 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 부모 요소 너비를 채움 */
+  height: 100%; /* 부모 요소 높이를 채움 */
+
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+
+  text-align: center; /* 텍스트 중앙 정렬 */
+  background: linear-gradient(135deg, #eef2f3, #cfd9df) !important; /* 부드러운 그라데이션 */
+  z-index: 0; /* 다른 콘텐츠 뒤로 배치 */
+}
+
 #page3_header {
+  font-family: 'Pretendard', sans-serif;
   font-size: 23px;
   font-weight: 500;
-
-  margin: 300px 0 0 0;
-  text-align: center;
-
   color: #444444;
+
+  text-align: center;
+}
+
+.cross-container {
+  animation: blink-cross 2.5s step-end infinite; /* 페이드 애니메이션 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+
+  height: 100%; /* 부모 높이 꽉 채우기 */
+  width: 100%;
+
+  background: linear-gradient(135deg, #eef2f3, #cfd9df);
+
+  position: absolute; /* 부모 요소 크기를 기준으로 배치 */
+  top: 0;
+  left: 0;
+  z-index: +1; /* 다른 콘텐츠 뒤로 배치 */
+}
+
+.cross-icon {
+  animation: pulse 1.5s infinite; /* SVG 크기 변화 */
+  margin-bottom: 20px; /* 아이콘과 텍스트 간격 */
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1)); /* 세련된 그림자 */
+}
+
+.blinking-text {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: #444;
+
+  text-shadow: 0px 0px 10px rgba(100, 150, 250, 0.6); /* 네온 효과 */
+  animation: fade-in-out 2.5s ease-in-out infinite; /* 부드럽게 깜빡임 */
+}
+
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink-cross {
+  0%,
+  50% {
+    opacity: 1; /* 완전히 보임 */
+  }
+  51%,
+  100% {
+    opacity: 0; /* 완전히 숨김 */
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .fade-in {
-  font-size: medium;
   position: relative;
-  overflow: hidden;
   animation: fade-in 1.5s ease-in-out;
 }
 
-@keyframes fade-in{
+@keyframes fade-in {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -237,4 +386,164 @@ span.blinkCursor {
     opacity: 1;
     transform: none;
   }
+}
+
+@keyframes textBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+}
+
+/* 페이지4 */
+#page4 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 네 번째 페이지 헤더 */
+#page4_header {
+  position: relative;
+  top: 100px; /* 부모 요소의 상단에서 150px 아래 */
+
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #444444;
+}
+
+/* 네 번째 페이지 본문 */
+#page4_middle {
+  position: absolute;
+  top: 170px; /* 부모 요소의 상단에서 200px 아래 */
+  left: 50%; /* 부모 요소 기준 가로 중앙 */
+  transform: translateX(-50%); /* 가로 중앙 보정 */
+
+  width: 140%;
+  font-size: 15px;
+  font-weight: 200;
+  text-align: center;
+  color: #444444;
+}
+
+#page4_square {
+  display: flex; /* 내부 콘텐츠 정렬을 위해 Flexbox 사용 */
+  flex-direction: column; /* 콘텐츠를 위에서 아래로 배치 */
+  /* align-items: center; 세로 중앙 정렬 */
+
+  width: 278px;
+  height: 250px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  position: absolute;
+  top: 53%; /* 부모 요소의 50% 위치 */
+  left: 50%; /* 부모 요소의 50% 위치*/
+  transform: translate(-50%, -50%); /* 정 중앙으로 이동*/
+
+  /* 1) 자식들 수직정렬 위해 justify-content 추가 */
+  /* justify-content: center; */
+}
+
+#page4_half_square {
+  margin: 1px auto;
+  width: 274px;
+  height: 65px;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(135deg, #e5f2ff 20%, #ffe6f2 100%);
+
+  font-size: 18px;
+  font-weight: 200;
+  color: #444444;
+
+  /* Flexbox로 중앙 정렬 */
+  display: flex;
+  justify-content: center; /* 가로축 중앙 정렬 */
+  align-items: center; /* 세로축 중앙 정렬 */
+
+  letter-spacing: 8px;
+}
+
+.action_btns {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%);
+
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* 버튼을 부모 요소의 가로 중앙에 정렬 */
+}
+
+.action_btn {
+  transition: all 0.3s ease; /* 호버 애니메이션 부드럽게 */
+  border: 1px solid transparent; /* 필요시 */
+
+  width: 73px;
+  height: 35px;
+  border-radius: 80px;
+  background-color: white;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-size: 15px;
+  font-weight: 400;
+
+  text-align: center;
+  line-height: 35px; /* 버튼 내부 텍스트를 중앙 정렬 */
+}
+
+.action_btn:hover {
+  background-color: #fafafa;
+  transform: scale(1.05) translateY(-2px);
+  border-color: #eee;
+}
+
+.action_btn svg {
+  vertical-align: middle; /* 텍스트와 수직 정렬 */
+}
+
+/* 랜덤 말씀 텍스트 스타일 */
+.verse-text {
+  font-size: 13.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.7;
+
+  color: #333;
+
+  white-space: pre-wrap; /* 줄바꿈 유지 */
+  margin-bottom: 15px;
+
+  /* 좌우 여백 */
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* 말씀 참고 구절 스타일 */
+.verse-reference {
+  margin-bottom: 5px;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #7c594c;
+  text-align: center;
+
+  /* 살짝 위 아래 여백 */
+  margin: 10px 0 15px 0;
 }
