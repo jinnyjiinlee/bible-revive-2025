@@ -1,46 +1,74 @@
 // 카카오톡 공유하기 openApi
 Kakao.init('41e44d0a8040b479d200df8dd89fd8f4');
-// key 값을 가져오는지 확인 > console.log(Kakao.isInitialized());
-function shareMessage() {
-  // 현재 링크 가져오기
-  var currentURL = window.location.href;
 
-  // 제품 타이틀을 가져오는 부분
-  var productTitleElement = document.querySelector('p.prod_top');
-  var productTitle = productTitleElement ? productTitleElement.innerText : '';
-
-  // 제품 설명을 가져오는 부분
-  var productSummaryElement = document.querySelector('pre');
-  var productSummary = productSummaryElement ? productSummaryElement.innerText : '';
-
-  // 제품 이미지를 가져오는 부분
-  var productImageElement = document.querySelector('.swiper-slide img');
-  var productImageUrl = productImageElement ? productImageElement.getAttribute('src') : '';
-
-  Kakao.Link.sendDefault({
-    objectType: 'feed',
-    content: {
-      title: productTitle,
-      description: productSummary,
-      imageUrl: productImageUrl,
-      link: {
-        mobileWebUrl: currentURL,
-        webUrl: currentURL,
-      },
+Kakao.Share.createDefaultButton({
+  container: '#kakaotalk-sharing-btn',
+  objectType: 'feed',
+  content: {
+    title: '2025 말씀 뽑기',
+    description: '아메리카노, 빵, 케익',
+    imageUrl:
+      './kakaoImage.png', // 로컬 경로를 설정
+    link: {
+      mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+      webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
     },
-    buttons: [
+  },
+  itemContent: {
+    profileText: 'Kakao',
+    profileImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+    titleImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+    titleImageText: 'Cheese cake',
+    titleImageCategory: 'Cake',
+    items: [
       {
-        title: '웹으로 보기',
-        link: {
-          mobileWebUrl: currentURL,
-          webUrl: currentURL,
-        },
+        item: 'Cake1',
+        itemOp: '1000원',
+      },
+      {
+        item: 'Cake2',
+        itemOp: '2000원',
+      },
+      {
+        item: 'Cake3',
+        itemOp: '3000원',
+      },
+      {
+        item: 'Cake4',
+        itemOp: '4000원',
+      },
+      {
+        item: 'Cake5',
+        itemOp: '5000원',
       },
     ],
-    // 카카오톡 미설치 시 카카오톡 설치 경로이동
-    installTalk: true,
-  });
-}
+    sum: 'Total',
+    sumOp: '15000원',
+  },
+  social: {
+    likeCount: 10,
+    commentCount: 20,
+    sharedCount: 30,
+  },
+  buttons: [
+    {
+      title: '웹으로 이동',
+      link: {
+        mobileWebUrl: 'https://developers.kakao.com',
+        webUrl: 'https://developers.kakao.com',
+      },
+    },
+    {
+      title: '앱으로 이동',
+      link: {
+        mobileWebUrl: 'https://developers.kakao.com',
+        webUrl: 'https://developers.kakao.com',
+      },
+    },
+  ],
+});
+
+
 
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
@@ -73,7 +101,7 @@ function goToPage3() {
 
     // **네 번째 페이지가 보이는 순간 랜덤 말씀 표시**
     displayRandomBible();
-  }, 9000); // 3초
+  }, 5000); // 3초
 }
 
 // 말씀 데이터
