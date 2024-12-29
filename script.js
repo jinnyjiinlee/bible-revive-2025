@@ -469,7 +469,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
     content: {
       title: '2025 말씀 뽑기',
       description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImage.png',
+      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImg.png',
       link: {
         mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
         webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
