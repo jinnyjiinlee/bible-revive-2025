@@ -2,73 +2,27 @@
 Kakao.init('41e44d0a8040b479d200df8dd89fd8f4');
 
 Kakao.Share.createDefaultButton({
-  container: '#kakaotalk-sharing-btn',
+  container: '#share_btn',
   objectType: 'feed',
   content: {
     title: '2025 말씀 뽑기',
-    description: '아메리카노, 빵, 케익',
-    imageUrl:
-      './kakaoImage.png', // 로컬 경로를 설정
+    description: '당신에게 주는 새해의 말씀',
+    imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImage.png',
     link: {
       mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
       webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
     },
   },
-  itemContent: {
-    profileText: 'Kakao',
-    profileImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-    titleImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-    titleImageText: 'Cheese cake',
-    titleImageCategory: 'Cake',
-    items: [
-      {
-        item: 'Cake1',
-        itemOp: '1000원',
-      },
-      {
-        item: 'Cake2',
-        itemOp: '2000원',
-      },
-      {
-        item: 'Cake3',
-        itemOp: '3000원',
-      },
-      {
-        item: 'Cake4',
-        itemOp: '4000원',
-      },
-      {
-        item: 'Cake5',
-        itemOp: '5000원',
-      },
-    ],
-    sum: 'Total',
-    sumOp: '15000원',
-  },
-  social: {
-    likeCount: 10,
-    commentCount: 20,
-    sharedCount: 30,
-  },
   buttons: [
     {
-      title: '웹으로 이동',
+      title: '2025년 나에게 주신 말씀은?',
       link: {
-        mobileWebUrl: 'https://developers.kakao.com',
-        webUrl: 'https://developers.kakao.com',
-      },
-    },
-    {
-      title: '앱으로 이동',
-      link: {
-        mobileWebUrl: 'https://developers.kakao.com',
-        webUrl: 'https://developers.kakao.com',
+        mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+        webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
       },
     },
   ],
 });
-
-
 
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
