@@ -7,6 +7,7 @@ const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
 const page4 = document.getElementById('page4');
 
+// 페이지1
 // 버튼을 선택
 const page1Button = document.getElementById('page1_button'); // 말씀 뽑기 버튼
 
@@ -469,7 +470,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
-      title: 'HAPPY NEW YEAR',
+      title: 'Happy New Year',
       // description: '당신에게 주는 새해의 말씀',
       imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/shareImg.png',
       link: {
@@ -545,26 +546,15 @@ document.getElementById('back_btn').addEventListener('click', () => {
   page1.style.display = 'block';
 });
 
-// 조회수 증가
-let totalCount = 1452; // 현재까지 (이건 임의)
-const bottomTextEl = document.getElementById('page1_bottom_text');
 
-// 페이지 로드 시, 1초 간격으로 카운트 애니메이션
-let current = 0;
-const interval = setInterval(() => {
-  current += 10; // 10씩 증가 (연출)
-  if (current >= totalCount) {
-    current = totalCount;
-    clearInterval(interval);
-  }
-  bottomTextEl.innerText = `지금까지 ${current.toLocaleString()}명이 새해를 말씀으로 준비했어요.`;
-}, 30);
+
 
 // 링크 공유
 document.getElementById('link_copy').addEventListener('click', () => {
   const linkToCopy = 'https://astonishing-alfajores-7acebb.netlify.app/'; // 복사할 링크
 
-  navigator.clipboard.writeText(linkToCopy)
+  navigator.clipboard
+    .writeText(linkToCopy)
     .then(() => {
       // 팝업 열기
       const popup = document.getElementById('copy_popup');
