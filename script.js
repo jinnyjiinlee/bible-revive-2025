@@ -32,7 +32,7 @@ function goToPage3() {
 
     // **네 번째 페이지가 보이는 순간 랜덤 말씀 표시**
     displayRandomBible();
-  }, 5000); // 3초
+  }, 3000); // 3초
 }
 
 // 말씀 데이터
@@ -437,6 +437,8 @@ function getRandomBible() {
   return bibleVerses[randomIndex];
 }
 
+// 페이지4
+
 function displayRandomBible() {
   // 1) verse_container 요소 가져오기
   const verseContainer = document.getElementById('verse_container');
@@ -469,7 +471,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
     content: {
       title: 'HAPPY NEW YEAR',
       // description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoShareImg.png',
+      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImg.png',
       link: {
         mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
         webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
@@ -529,7 +531,7 @@ setTimeout(() => {
 
       // 이미지 다운로드
       const link = document.createElement('a');
-      link.download = '말씀.png';
+      link.download = '말씀새록 2025.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
     });
@@ -557,3 +559,25 @@ const interval = setInterval(() => {
   }
   bottomTextEl.innerText = `지금까지 ${current.toLocaleString()}명이 새해를 말씀으로 준비했어요.`;
 }, 30);
+
+// 링크 공유
+document.getElementById('link_copy').addEventListener('click', () => {
+  const linkToCopy = 'https://astonishing-alfajores-7acebb.netlify.app/'; // 복사할 링크
+
+  navigator.clipboard.writeText(linkToCopy)
+    .then(() => {
+      // 팝업 열기
+      const popup = document.getElementById('copy_popup');
+      popup.style.display = 'flex';
+    })
+    .catch((error) => {
+      console.error('복사 실패: ', error);
+      alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
+    });
+});
+
+// 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('close_popup').addEventListener('click', () => {
+  const popup = document.getElementById('copy_popup');
+  popup.style.display = 'none';
+});
