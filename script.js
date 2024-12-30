@@ -471,7 +471,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
     content: {
       title: 'HAPPY NEW YEAR',
       // description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImg.png',
+      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/shareImg.png',
       link: {
         mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
         webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
