@@ -53,6 +53,7 @@ function displayRandomBible() {
 }
 
 // 카카오톡 공유하기
+
 // 카카오톡 공유하기 openApi
 Kakao.init('ee1c97242a0d1348b2b752a62187b335');
 
@@ -74,7 +75,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
     content: {
       title: 'HAPPY NEW YEAR',
       // description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://https://bible-revive-2025.netlify.app/shareImg.png',
+      imageUrl: 'https://bible-revive-2025.netlify.app/shareImg.png',
       link: {
         mobileWebUrl: 'https://bible-revive-2025.netlify.app',
         webUrl: 'https://bible-revive-2025.netlify.app',
