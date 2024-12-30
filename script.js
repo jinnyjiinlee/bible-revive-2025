@@ -73,7 +73,7 @@ document.getElementById('share_btn').addEventListener('click', () => {
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
-      title: 'HAPPY NEW YEAR',
+      title: 'Happy New Year',
       // description: '당신에게 주는 새해의 말씀',
       imageUrl: 'https://bible-revive-2025.netlify.app/shareImg.png',
       link: {
@@ -150,32 +150,32 @@ document.getElementById('back_btn').addEventListener('click', () => {
 });
 
 // 링크 복사하기
-// document.getElementById('link_copy').addEventListener('click', () => {
-//   const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
+document.getElementById('link_copy').addEventListener('click', () => {
+  const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
 
-//   navigator.clipboard
-//     .writeText(linkToCopy)
-//     .then(() => {
-//       // 팝업 열기
-//       const popup = document.getElementById('copy_popup');
-//       popup.style.display = 'flex';
+  navigator.clipboard
+    .writeText(linkToCopy)
+    .then(() => {
+      // 팝업 열기
+      const popup = document.getElementById('copy_popup');
+      popup.style.display = 'flex';
 
-//       // 2초 후 팝업 숨기기
-//       setTimeout(() => {
-//         popup.style.display = 'none';
-//       }, 2000); // 2초 후 팝업 숨기기
-//     })
-//     .catch((error) => {
-//       console.error('복사 실패:', error);
-//       alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
-//     });
-// });
+      // 2초 후 팝업 숨기기
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000); // 2초 후 팝업 숨기기
+    })
+    .catch((error) => {
+      console.error('복사 실패:', error);
+      alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
+    });
+});
 
-// // 닫기 버튼 클릭 시 팝업 닫기
-// document.getElementById('close_popup').addEventListener('click', () => {
-//   const popup = document.getElementById('copy_popup');
-//   popup.style.display = 'none';
-// });
+// 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('close_popup').addEventListener('click', () => {
+  const popup = document.getElementById('copy_popup');
+  popup.style.display = 'none';
+});
 
 // 말씀 데이터
 const bibleVerses = [
