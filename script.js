@@ -1,5 +1,5 @@
 // 카카오톡 공유하기 openApi
-Kakao.init('https://bible-revive-2025.netlify.app/');
+Kakao.init('ee1c97242a0d1348b2b752a62187b335');
 
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
