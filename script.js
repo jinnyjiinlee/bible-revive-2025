@@ -98,6 +98,7 @@ setTimeout(() => {
   document.getElementById('save_btn').addEventListener('click', () => {
     const phoneSize = document.getElementById('phone_size');
     const actionButtons = document.querySelector('.action_btns'); // 버튼 그룹 요소
+    const linkCopyBtn = document.getElementById('link_copy');    // 링크 복사하기 버튼
     const page4 = document.getElementById('page4'); // 네 번째 페이지
 
     if (!phoneSize) {
