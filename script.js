@@ -1,6 +1,3 @@
-// 카카오톡 공유하기 openApi
-Kakao.init('ee1c97242a0d1348b2b752a62187b335');
-
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
@@ -36,8 +33,150 @@ function goToPage3() {
   }, 3000); // 3초
 }
 
-// 말씀 데이터
+function getRandomBible() {
+  const randomIndex = Math.floor(Math.random() * bibleVerses.length);
+  return bibleVerses[randomIndex];
+}
 
+// 페이지4
+
+function displayRandomBible() {
+  // 1) verse_container 요소 가져오기
+  const verseContainer = document.getElementById('verse_container');
+  // 2) 랜덤 구절 하나 뽑기
+  const randomBible = getRandomBible();
+  // 3) verse_container 내용을 갈아끼우기
+  verseContainer.innerHTML = `
+    <div class="verse-text">${randomBible.text}</div>
+    <div class="verse-reference">${randomBible.reference}</div>
+  `;
+}
+
+// 카카오톡 공유하기
+// 카카오톡 공유하기 openApi
+Kakao.init('ee1c97242a0d1348b2b752a62187b335');
+
+document.getElementById('share_btn').addEventListener('click', () => {
+  // 1) verseCard 안에서 텍스트/레퍼런스 찾기 (예: #verse_container 내부)
+  const verseTextEl = document.querySelector('.verse-text');
+  const verseRefEl = document.querySelector('.verse-reference');
+  if (!verseTextEl || !verseRefEl) {
+    alert('공유할 말씀 정보가 없습니다.');
+    return;
+  }
+
+  const verseText = verseTextEl.innerText;
+  const verseRef = verseRefEl.innerText;
+
+  // 2) 카카오톡 공유 (sendDefault)
+  Kakao.Link.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: 'HAPPY NEW YEAR',
+      // description: '당신에게 주는 새해의 말씀',
+      imageUrl: 'https://https://bible-revive-2025.netlify.app/shareImg.png',
+      link: {
+        mobileWebUrl: 'https://bible-revive-2025.netlify.app',
+        webUrl: 'https://bible-revive-2025.netlify.app',
+      },
+    },
+    buttons: [
+      {
+        title: '말씀 뽑기 (클릭)',
+        link: {
+          mobileWebUrl: 'https://bible-revive-2025.netlify.app',
+          webUrl: 'https://bible-revive-2025.netlify.app',
+        },
+      },
+    ],
+  });
+});
+
+// 저장
+setTimeout(() => {
+  document.getElementById('save_btn').addEventListener('click', () => {
+    const phoneSize = document.getElementById('phone_size');
+    const actionButtons = document.querySelector('.action_btns'); // 버튼 그룹 요소
+    const page4 = document.getElementById('page4'); // 네 번째 페이지
+
+    if (!phoneSize) {
+      alert('phone_size 요소를 찾을 수 없습니다!');
+      return;
+    }
+
+    // 기존 애니메이션과 스타일 백업
+    const oldAnimation = page4.style.animation; // 애니메이션 백업
+    const oldOpacity = phoneSize.style.opacity;
+    const oldFilter = phoneSize.style.filter;
+    const oldDisplay = actionButtons.style.display; // 버튼 그룹 display 값 백업
+
+    // 애니메이션 제거 및 버튼 숨기기
+    page4.style.animation = 'none'; // 애니메이션 제거
+    actionButtons.style.display = 'none'; // 버튼 숨기기
+
+    // 캡처 직전: 불투명도와 필터 초기화
+    phoneSize.style.opacity = '1';
+    phoneSize.style.filter = 'none';
+
+    // html2canvas로 캡처
+    html2canvas(phoneSize, {
+      scale: 3,
+      backgroundColor: null,
+      useCORS: true,
+    }).then((canvas) => {
+      // 애니메이션 및 버튼 복원
+      // page4.style.animation = oldAnimation; // 애니메이션 복구
+      actionButtons.style.display = oldDisplay; // 버튼 복구
+
+      // 스타일 복구
+      phoneSize.style.opacity = oldOpacity;
+      phoneSize.style.filter = oldFilter;
+
+      // 이미지 다운로드
+      const link = document.createElement('a');
+      link.download = '말씀새록 2025.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  });
+}, 2000);
+
+// 다시 버튼
+document.getElementById('back_btn').addEventListener('click', () => {
+  // 4페이지 숨기고, 1페이지 보여주기
+  page4.style.display = 'none';
+  page1.style.display = 'block';
+});
+
+// 링크 복사하기
+// document.getElementById('link_copy').addEventListener('click', () => {
+//   const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
+
+//   navigator.clipboard
+//     .writeText(linkToCopy)
+//     .then(() => {
+//       // 팝업 열기
+//       const popup = document.getElementById('copy_popup');
+//       popup.style.display = 'flex';
+
+//       // 2초 후 팝업 숨기기
+//       setTimeout(() => {
+//         popup.style.display = 'none';
+//       }, 2000); // 2초 후 팝업 숨기기
+//     })
+//     .catch((error) => {
+//       console.error('복사 실패:', error);
+//       alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
+//     });
+// });
+
+// // 닫기 버튼 클릭 시 팝업 닫기
+// document.getElementById('close_popup').addEventListener('click', () => {
+//   const popup = document.getElementById('copy_popup');
+//   popup.style.display = 'none';
+// });
+
+// 말씀 데이터
 const bibleVerses = [
   // 1
   {
@@ -433,142 +572,3 @@ const bibleVerses = [
     reference: '요한계시록 3:20',
   },
 ];
-function getRandomBible() {
-  const randomIndex = Math.floor(Math.random() * bibleVerses.length);
-  return bibleVerses[randomIndex];
-}
-
-// 페이지4
-
-function displayRandomBible() {
-  // 1) verse_container 요소 가져오기
-  const verseContainer = document.getElementById('verse_container');
-  // 2) 랜덤 구절 하나 뽑기
-  const randomBible = getRandomBible();
-  // 3) verse_container 내용을 갈아끼우기
-  verseContainer.innerHTML = `
-    <div class="verse-text">${randomBible.text}</div>
-    <div class="verse-reference">${randomBible.reference}</div>
-  `;
-}
-
-// 카카오톡 공유하기
-document.getElementById('share_btn').addEventListener('click', () => {
-  // 1) verseCard 안에서 텍스트/레퍼런스 찾기 (예: #verse_container 내부)
-  const verseTextEl = document.querySelector('.verse-text');
-  const verseRefEl = document.querySelector('.verse-reference');
-  if (!verseTextEl || !verseRefEl) {
-    alert('공유할 말씀 정보가 없습니다.');
-    return;
-  }
-
-  const verseText = verseTextEl.innerText;
-  const verseRef = verseRefEl.innerText;
-
-  // 2) 카카오톡 공유 (sendDefault)
-  Kakao.Link.sendDefault({
-    objectType: 'feed',
-    content: {
-      title: 'HAPPY NEW YEAR',
-      // description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://https://bible-revive-2025.netlify.app/kakaoImg.png',
-      link: {
-        mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
-        webUrl: 'https://bible-revive-2025.netlify.app/',
-      },
-    },
-    buttons: [
-      {
-        title: '말씀 뽑기 (클릭)',
-        link: {
-          mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
-          webUrl: 'https://bible-revive-2025.netlify.app/',
-        },
-      },
-    ],
-  });
-});
-
-// 저장
-setTimeout(() => {
-  document.getElementById('save_btn').addEventListener('click', () => {
-    const phoneSize = document.getElementById('phone_size');
-    const actionButtons = document.querySelector('.action_btns'); // 버튼 그룹 요소
-    const page4 = document.getElementById('page4'); // 네 번째 페이지
-
-    if (!phoneSize) {
-      alert('phone_size 요소를 찾을 수 없습니다!');
-      return;
-    }
-
-    // 기존 애니메이션과 스타일 백업
-    const oldAnimation = page4.style.animation; // 애니메이션 백업
-    const oldOpacity = phoneSize.style.opacity;
-    const oldFilter = phoneSize.style.filter;
-    const oldDisplay = actionButtons.style.display; // 버튼 그룹 display 값 백업
-
-    // 애니메이션 제거 및 버튼 숨기기
-    page4.style.animation = 'none'; // 애니메이션 제거
-    actionButtons.style.display = 'none'; // 버튼 숨기기
-
-    // 캡처 직전: 불투명도와 필터 초기화
-    phoneSize.style.opacity = '1';
-    phoneSize.style.filter = 'none';
-
-    // html2canvas로 캡처
-    html2canvas(phoneSize, {
-      scale: 3,
-      backgroundColor: null,
-      useCORS: true,
-    }).then((canvas) => {
-      // 애니메이션 및 버튼 복원
-      // page4.style.animation = oldAnimation; // 애니메이션 복구
-      actionButtons.style.display = oldDisplay; // 버튼 복구
-
-      // 스타일 복구
-      phoneSize.style.opacity = oldOpacity;
-      phoneSize.style.filter = oldFilter;
-
-      // 이미지 다운로드
-      const link = document.createElement('a');
-      link.download = '말씀새록 2025.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
-  });
-}, 2000);
-
-// 다시 버튼
-document.getElementById('back_btn').addEventListener('click', () => {
-  // 4페이지 숨기고, 1페이지 보여주기
-  page4.style.display = 'none';
-  page1.style.display = 'block';
-});
-
-// 링크 복사하기
-// document.getElementById('link_copy').addEventListener('click', () => {
-//   const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
-
-//   navigator.clipboard
-//     .writeText(linkToCopy)
-//     .then(() => {
-//       // 팝업 열기
-//       const popup = document.getElementById('copy_popup');
-//       popup.style.display = 'flex';
-
-//       // 2초 후 팝업 숨기기
-//       setTimeout(() => {
-//         popup.style.display = 'none';
-//       }, 2000); // 2초 후 팝업 숨기기
-//     })
-//     .catch((error) => {
-//       console.error('복사 실패:', error);
-//       alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
-//     });
-// });
-
-// // 닫기 버튼 클릭 시 팝업 닫기
-// document.getElementById('close_popup').addEventListener('click', () => {
-//   const popup = document.getElementById('copy_popup');
-//   popup.style.display = 'none';
-// });
