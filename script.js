@@ -467,9 +467,9 @@ document.getElementById('share_btn').addEventListener('click', () => {
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
-      title: '2025 말씀 뽑기',
-      description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoImg.png',
+      // title: '2025 말씀 뽑기',
+      // description: '당신에게 주는 새해의 말씀',
+      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/kakaoShare.png',
       link: {
         mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
         webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
