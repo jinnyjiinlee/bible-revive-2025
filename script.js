@@ -1,5 +1,5 @@
 // 카카오톡 공유하기 openApi
-Kakao.init('0aafd25ee1ec2f099b1f5a3d57d68d9e');
+Kakao.init('https://bible-revive-2025.netlify.app/');
 
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
@@ -454,16 +454,6 @@ function displayRandomBible() {
 
 // 카카오톡 공유하기
 document.getElementById('share_btn').addEventListener('click', () => {
-  const verseTextEl = document.querySelector('.verse-text');
-  const verseRefEl = document.querySelector('.verse-reference');
-  if (!verseTextEl || !verseRefEl) {
-    alert('공유할 말씀 정보가 없습니다.');
-    return;
-  }
-
-  const verseText = verseTextEl.innerText;
-  const verseRef = verseRefEl.innerText;
-
   // 카카오톡 공유 (sendDefault)
   Kakao.Link.sendDefault({
     objectType: 'feed',
@@ -471,16 +461,16 @@ document.getElementById('share_btn').addEventListener('click', () => {
       title: 'Happy New Year',
       imageUrl: 'https://bible-revive-2025.netlify.app/shareImg.png',
       link: {
-        mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
-        webUrl: 'https://bible-revive-2025.netlify.app/',
+        mobileWebUrl: 'https://bible-revive-2025.netlify.app',
+        webUrl: 'https://bible-revive-2025.netlify.app',
       },
     },
     buttons: [
       {
         title: '말씀 뽑기 (클릭)',
         link: {
-          mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
-          webUrl: 'https://bible-revive-2025.netlify.app/',
+          mobileWebUrl: 'https://bible-revive-2025.netlify.app',
+          webUrl: 'https://bible-revive-2025.netlify.app',
         },
       },
     ],
