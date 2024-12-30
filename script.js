@@ -1,5 +1,5 @@
 // 카카오톡 공유하기 openApi
-Kakao.init('41e44d0a8040b479d200df8dd89fd8f4');
+Kakao.init('0aafd25ee1ec2f099b1f5a3d57d68d9e');
 
 // 첫 번째 페이지와 두 번째 페이지를 선택
 const page1 = document.getElementById('page1');
@@ -545,9 +545,6 @@ document.getElementById('back_btn').addEventListener('click', () => {
   page4.style.display = 'none';
   page1.style.display = 'block';
 });
-
-
-
 
 // 링크 공유
 document.getElementById('link_copy').addEventListener('click', () => {
