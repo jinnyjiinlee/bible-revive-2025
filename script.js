@@ -452,8 +452,6 @@ function displayRandomBible() {
   `;
 }
 
-// 카카오 공유
-
 // 카카오톡 공유하기
 document.getElementById('share_btn').addEventListener('click', () => {
   const verseTextEl = document.querySelector('.verse-text');
@@ -546,29 +544,29 @@ document.getElementById('back_btn').addEventListener('click', () => {
 });
 
 // 링크 복사하기
-document.getElementById('link_copy').addEventListener('click', () => {
-  const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
+// document.getElementById('link_copy').addEventListener('click', () => {
+//   const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
 
-  navigator.clipboard
-    .writeText(linkToCopy)
-    .then(() => {
-      // 팝업 열기
-      const popup = document.getElementById('copy_popup');
-      popup.style.display = 'flex';
+//   navigator.clipboard
+//     .writeText(linkToCopy)
+//     .then(() => {
+//       // 팝업 열기
+//       const popup = document.getElementById('copy_popup');
+//       popup.style.display = 'flex';
 
-      // 2초 후 팝업 숨기기
-      setTimeout(() => {
-        popup.style.display = 'none';
-      }, 2000); // 2초 후 팝업 숨기기
-    })
-    .catch((error) => {
-      console.error('복사 실패:', error);
-      alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
-    });
-});
+//       // 2초 후 팝업 숨기기
+//       setTimeout(() => {
+//         popup.style.display = 'none';
+//       }, 2000); // 2초 후 팝업 숨기기
+//     })
+//     .catch((error) => {
+//       console.error('복사 실패:', error);
+//       alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
+//     });
+// });
 
-// 닫기 버튼 클릭 시 팝업 닫기
-document.getElementById('close_popup').addEventListener('click', () => {
-  const popup = document.getElementById('copy_popup');
-  popup.style.display = 'none';
-});
+// // 닫기 버튼 클릭 시 팝업 닫기
+// document.getElementById('close_popup').addEventListener('click', () => {
+//   const popup = document.getElementById('copy_popup');
+//   popup.style.display = 'none';
+// });
