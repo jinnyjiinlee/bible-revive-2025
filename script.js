@@ -454,8 +454,8 @@ function displayRandomBible() {
 
 // 카카오 공유
 
+// 카카오톡 공유하기
 document.getElementById('share_btn').addEventListener('click', () => {
-  // 1) verseCard 안에서 텍스트/레퍼런스 찾기 (예: #verse_container 내부)
   const verseTextEl = document.querySelector('.verse-text');
   const verseRefEl = document.querySelector('.verse-reference');
   if (!verseTextEl || !verseRefEl) {
@@ -466,12 +466,11 @@ document.getElementById('share_btn').addEventListener('click', () => {
   const verseText = verseTextEl.innerText;
   const verseRef = verseRefEl.innerText;
 
-  // 2) 카카오톡 공유 (sendDefault)
+  // 카카오톡 공유 (sendDefault)
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
       title: 'Happy New Year',
-      // description: '당신에게 주는 새해의 말씀',
       imageUrl: 'https://bible-revive-2025.netlify.app/shareImg.png',
       link: {
         mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
@@ -546,7 +545,7 @@ document.getElementById('back_btn').addEventListener('click', () => {
   page1.style.display = 'block';
 });
 
-// 링크 공유
+// 링크 복사하기
 document.getElementById('link_copy').addEventListener('click', () => {
   const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
 
@@ -556,9 +555,14 @@ document.getElementById('link_copy').addEventListener('click', () => {
       // 팝업 열기
       const popup = document.getElementById('copy_popup');
       popup.style.display = 'flex';
+
+      // 2초 후 팝업 숨기기
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000); // 2초 후 팝업 숨기기
     })
     .catch((error) => {
-      console.error('복사 실패: ', error);
+      console.error('복사 실패:', error);
       alert('링크를 복사하는 데 실패했습니다. 다시 시도해주세요.');
     });
 });
