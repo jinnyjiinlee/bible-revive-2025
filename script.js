@@ -472,18 +472,18 @@ document.getElementById('share_btn').addEventListener('click', () => {
     content: {
       title: 'Happy New Year',
       // description: '당신에게 주는 새해의 말씀',
-      imageUrl: 'https://astonishing-alfajores-7acebb.netlify.app/shareImg.png',
+      imageUrl: 'https://bible-revive-2025.netlify.app/shareImg.png',
       link: {
-        mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-        webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+        mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
+        webUrl: 'https://bible-revive-2025.netlify.app/',
       },
     },
     buttons: [
       {
         title: '말씀 뽑기 (클릭)',
         link: {
-          mobileWebUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
-          webUrl: 'https://astonishing-alfajores-7acebb.netlify.app/',
+          mobileWebUrl: 'https://bible-revive-2025.netlify.app/',
+          webUrl: 'https://bible-revive-2025.netlify.app/',
         },
       },
     ],
@@ -551,7 +551,7 @@ document.getElementById('back_btn').addEventListener('click', () => {
 
 // 링크 공유
 document.getElementById('link_copy').addEventListener('click', () => {
-  const linkToCopy = 'https://astonishing-alfajores-7acebb.netlify.app/'; // 복사할 링크
+  const linkToCopy = 'https://bible-revive-2025.netlify.app/'; // 복사할 링크
 
   navigator.clipboard
     .writeText(linkToCopy)
