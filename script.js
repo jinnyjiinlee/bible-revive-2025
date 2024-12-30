@@ -110,10 +110,12 @@ setTimeout(() => {
     const oldOpacity = phoneSize.style.opacity;
     const oldFilter = phoneSize.style.filter;
     const oldDisplay = actionButtons.style.display; // 버튼 그룹 display 값 백업
+    const oldLinkCopyDisplay = linkCopyBtn.style.display; // [링크 복사하기] 버튼 display 백업
 
     // 애니메이션 제거 및 버튼 숨기기
     page4.style.animation = 'none'; // 애니메이션 제거
     actionButtons.style.display = 'none'; // 버튼 숨기기
+    linkCopyBtn.style.display = 'none';     // 링크 복사하기 버튼도 숨기기
 
     // 캡처 직전: 불투명도와 필터 초기화
     phoneSize.style.opacity = '1';
@@ -128,6 +130,7 @@ setTimeout(() => {
       // 애니메이션 및 버튼 복원
       // page4.style.animation = oldAnimation; // 애니메이션 복구
       actionButtons.style.display = oldDisplay; // 버튼 복구
+      linkCopyBtn.style.display = oldLinkCopyDisplay; // 링크 복사하기 버튼 복구
 
       // 스타일 복구
       phoneSize.style.opacity = oldOpacity;
