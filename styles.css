@@ -38,7 +38,6 @@ body {
 }
 
 /* 페이지1 */
-
 #page1_header {
   position: relative;
   top: 80px;
@@ -136,11 +135,11 @@ body {
   transform: translateX(-50%);
 
   font-family: 'Pretendard', sans-serif;
-  font-weight: 100 !important;
+  font-weight: 300 !important;
 
   font-size: 14px;
   font-weight: 350;
-  color: #333;
+  color: #555;
 }
 
 .introduction_link {
@@ -156,7 +155,7 @@ body {
 
 .introduction_link a {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 200;
   color: #878b8e; /* 기본 텍스트 색상 */
   text-decoration: underline; /* 밑줄 추가 */
   cursor: pointer;
