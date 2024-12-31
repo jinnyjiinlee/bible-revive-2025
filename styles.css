@@ -16,8 +16,8 @@ body {
   width: 375px; /* 최대 크기 제한 */
   height: 667px; /* 최대 크기 제한 */
   background: linear-gradient(135deg, #e5f2ff 20%, #ffe6f2 100%);
-  background-size: cover; 
-} 
+  background-size: cover;
+}
 
 #basic_square {
   display: flex; /* 내부 콘텐츠 정렬을 위해 Flexbox 사용 */
@@ -295,7 +295,7 @@ span.blinkCursor {
   text-align: center; /* 텍스트 중앙 정렬 */
   border-radius: 8px;
   background: linear-gradient(135deg, #eef2f3, #cfd9df) !important; /* 부드러운 그라데이션 */
-  z-index: 0; 
+  z-index: 0;
 }
 
 #page3_header {
@@ -549,11 +549,15 @@ span.blinkCursor {
   position: absolute;
   bottom: 35px;
   left: 60%;
-  font-size: 15px;
+  font-size: 13.5px;
   color: #838789;
+  font-weight: 300;
 
-  cursor: pointer;
+  /* 밑줄 스타일 */
   text-decoration: underline;
+  text-decoration-color: #838789; /* 필요 시 색상 지정 가능 */
+  text-decoration-thickness: 1px; /* 밑줄 굵기 */
+  text-underline-offset: 3px; /* 밑줄과 글자 사이 간격 (옵션) */
 }
 
 /* 팝업창 */
