@@ -1,7 +1,7 @@
 # 📖 말씀새록 2025 (Bible Revive 2025)
 
 **“말씀으로 새록새록, 믿음으로 풍성하게”**  
-새해를 하나님의 따뜻한 말씀과 함께 시작할 수 있도록 돕는 웹 서비스입니다.  
+새해를 따뜻한 성경 말씀과 함께 시작할 수 있도록 돕는 웹 서비스입니다.  
 
 - **서비스 URL:** [bible-revive-2025.netlify.app](https://bible-revive-2025.netlify.app/)  
 - **문의 및 피드백:** [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLSekAUMfmekKo5_ukXMNdCPZL80NZcrxg7olvTY6siPSU-_CIw/viewform?usp=dialog)  
