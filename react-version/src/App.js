@@ -1,5 +1,6 @@
 import StartPage from './pages/StartPage';
 import LoadingIntroPage from './pages/LoadingIntroPage';
+import LoadingTransitionPage from './pages/LoadingTransitionPage';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       {/* <StartPage /> */}
 
       {/* LoadingPage */}
-      <LoadingIntroPage />
+      {/* <LoadingIntroPage /> */}
+      <LoadingTransitionPage />
 
       {/* ResultPage  */}
     </div>
