@@ -12,10 +12,10 @@ function App() {
 
       {/* LoadingPage */}
       {/* <LoadingIntroPage /> */}
-      <LoadingTransitionPage />
+      {/* <LoadingTransitionPage /> */}
 
       {/* ResultPage  */}
-      {/* <ResultPage /> */}
+      <ResultPage />
     </div>
   );
 }
