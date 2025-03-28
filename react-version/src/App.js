@@ -8,14 +8,14 @@ function App() {
     <div>
       {/* StartPage */}
       {/* 1) StartPage.jsx안에 컴포넌트를 만들기 */}
-      {/* <StartPage /> */}
+      <StartPage />
 
       {/* LoadingPage */}
       {/* <LoadingIntroPage /> */}
       {/* <LoadingTransitionPage /> */}
 
       {/* ResultPage  */}
-      <ResultPage />
+      {/* <ResultPage /> */}
     </div>
   );
 }
