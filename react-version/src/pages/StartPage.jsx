@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { CommonLayoutSize } from '../components/CommonLayout.jsx';
 
 function StartPage() {
   return (
-    <PhoneSizeBox>
+    <CommonLayoutSize>
       {/* 상단 happy 2025 */}
       <TopText>
         HAPPY <br /> 2025YEAR
@@ -28,23 +29,11 @@ function StartPage() {
         <a href='https://quilt-alpaca-b4b.notion.site/2025-16b31867c4b580ebaa40dd1c385ec985?pvs=4'>팀 소개</a>
         <a href='https://forms.gle/t96pkSw1EgE7t2766'>서비스 피드백하기</a>
       </Footer>
-    </PhoneSizeBox>
+    </CommonLayoutSize>
   );
 }
 
 export default StartPage;
-
-let PhoneSizeBox = styled.div`
-  font-family: 'Pretendard';
-  box-sizing: border-box;
-  margin: auto;
-  width: 375px;
-  height: 667px;
-  background: linear-gradient(135deg, #e5f2ff 20%, #ffe6f2 100%);
-
-  border-radius: 8px;
-  text-align: center;
-`;
 
 let TopText = styled.div`
   padding-top: 50px;
