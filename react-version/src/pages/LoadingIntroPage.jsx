@@ -3,7 +3,18 @@ import { CommonLayoutSize } from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
 import { ReactTyped } from 'react-typed';
 
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 function LoadingIntroPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/loadingTransition');
+    }, 6000);
+  });
+
   return (
     <CommonLayoutSize>
       <LoaderStyle>

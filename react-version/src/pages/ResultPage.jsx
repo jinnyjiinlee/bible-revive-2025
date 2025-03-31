@@ -5,13 +5,12 @@ function ResultPage() {
   return (
     <CommonLayoutSize>
       <div>
-        <TopMaintext>당신을 위한 말씀</TopMaintext>
-        <TopSubtext>이 말씀으로 새해를 더욱 은혜롭게 시작해보세요</TopSubtext>
+        <TopMainText>당신을 위한 말씀</TopMainText>
+        <TopSubText>이 말씀으로 새해를 더욱 은혜롭게 시작해보세요</TopSubText>
       </div>
 
       <VerseResultBox>
         <VerseResultBoxHead>2025YEAR</VerseResultBoxHead>
-
         <p>말씀나오는 구간</p>
         <h3>말씀 주소 나오는 구간</h3>
       </VerseResultBox>
@@ -44,13 +43,13 @@ function ResultPage() {
 
 export default ResultPage;
 
-const TopMaintext = styled.h1`
+const TopMainText = styled.h1`
   padding-top: 100px;
   font-weight: 600;
   color: #3a3939;
 `;
 
-const TopSubtext = styled.p`
+const TopSubText = styled.p`
   padding-top: 10px;
   font-size: 15px;
   font-weight: 100;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { CommonLayoutSize } from '../components/CommonLayout.jsx';
+import { Link } from 'react-router-dom';
 
 function StartPage() {
   return (
@@ -17,8 +18,7 @@ function StartPage() {
           <br />
           마음 깊이 품어보세요.
         </div>
-
-        <Button style={{ marginTop: '30px' }}>말씀 뽑기</Button>
+        <StyledLinkButton to='/loadingInt'>말씀 뽑기</StyledLinkButton>
       </MiddleSquare>
 
       {/* 사용자 수 안내 */}
@@ -80,17 +80,24 @@ let Footer = styled.footer`
   }
 `;
 
-let Button = styled.button`
+const StyledLinkButton = styled(Link)`
+  margin: 30px auto 0 auto;
+  display: flex;
+  justify-content: center;
+
   background: #bba4f8;
   color: #ffffff;
 
   width: 117px;
   height: 38px;
 
+  align-items: center;
   font-size: 16px;
   font-weight: 400;
   border-radius: 30px;
   border-width: 0px;
+
+  text-decoration: none;
 
   &:hover {
     background: #a58cf5;
