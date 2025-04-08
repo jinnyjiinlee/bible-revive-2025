@@ -6,28 +6,28 @@ function StartPage() {
   return (
     <CommonLayoutSize>
       {/* 상단 happy 2025 */}
-      <TopText>
+      <Header>
         HAPPY <br /> 2025YEAR
-      </TopText>
+      </Header>
 
       {/* 중앙 메시지 영역 */}
-      <MiddleSquare>
-        <h1 style={{ paddingTop: '40px', fontSize: '32px' }}>말씀 새록</h1>
-        <div style={{ paddingTop: '10px', fontSize: '13px', fontWeight: '150' }}>
+      <ContentContainer>
+        <Title>말씀 새록</Title>
+        <Text>
           당신에게 주시는 따스한 말씀을
           <br />
           마음 깊이 품어보세요.
-        </div>
+        </Text>
         <StyledLinkButton to='/loadingInt'>말씀 뽑기</StyledLinkButton>
-      </MiddleSquare>
+      </ContentContainer>
 
-      {/* 사용자 수 안내 */}
-      <p style={{ fontSize: '15px', fontWeight: '130' }}>지금까지 1,345명이 새해를 말씀으로 시작했어요</p>
-
-      {/* 하단 링크 */}
+      {/* 사용자 수 안내 및 하단 링크 */}
       <Footer>
-        <a href='https://quilt-alpaca-b4b.notion.site/2025-16b31867c4b580ebaa40dd1c385ec985?pvs=4'>팀 소개</a>
-        <a href='https://forms.gle/t96pkSw1EgE7t2766'>서비스 피드백하기</a>
+        <FooterText>서비스 및 개발자 정보를 아래 링크에서 확인해보세요!</FooterText>
+        <LinkContainer>
+          <a href='https://quilt-alpaca-b4b.notion.site/2025-16b31867c4b580ebaa40dd1c385ec985?pvs=4'>팀 소개</a>
+          <a href='https://forms.gle/t96pkSw1EgE7t2766'>서비스 피드백하기</a>
+        </LinkContainer>
       </Footer>
     </CommonLayoutSize>
   );
@@ -35,7 +35,7 @@ function StartPage() {
 
 export default StartPage;
 
-let TopText = styled.div`
+const Header = styled.div`
   padding-top: 50px;
 
   font-family: 'Pretendard', sans-serif;
@@ -48,23 +48,51 @@ let TopText = styled.div`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 `;
 
-let MiddleSquare = styled.div`
+const Title = styled.h1`
+  padding-top: 40px;
+  font-size: 32px;
+`;
+
+const Text = styled.div`
+  padding-top: 10px;
+  font-size: 13px;
+  font-weight: 150;
+`;
+
+const ContentContainer = styled.div`
   background: white;
   margin: 50px auto;
 
   width: 300px;
   height: 250px;
+
   border-radius: 20px;
 `;
 
-let Footer = styled.footer`
-  margin-top: 90px;
-  color: #b2a6a6;
+const Footer = styled.div`
+  padding-top: 70px;
+`;
+
+const FooterText = styled.div`
+  color: #555;
+  font-size: 14px;
+  font-weight: 130;
+`;
+
+const LinkContainer = styled.footer`
+  padding-top: 40px;
+
   display: flex;
   justify-content: center;
   gap: 60px;
 
+  color: #878b8e;
   font-size: 13px;
+  font-weight: 200;
+
+  text-decoration: underline; /* 밑줄 추가 */
+  cursor: pointer;
+  transition: color 0.3s ease; /* 호버 시 부드러운 색상 전환 */
 
   a {
     color: inherit;
@@ -81,12 +109,12 @@ let Footer = styled.footer`
 `;
 
 const StyledLinkButton = styled(Link)`
+  background: #bba4f8;
+  color: #ffffff;
+
   margin: 30px auto 0 auto;
   display: flex;
   justify-content: center;
-
-  background: #bba4f8;
-  color: #ffffff;
 
   width: 117px;
   height: 38px;

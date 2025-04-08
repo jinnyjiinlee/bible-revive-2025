@@ -2,9 +2,7 @@ import StartPage from './pages/StartPage';
 import LoadingIntroPage from './pages/LoadingIntroPage';
 import LoadingTransitionPage from './pages/LoadingTransitionPage';
 import ResultPage from './pages/ResultPage';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-
-import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
