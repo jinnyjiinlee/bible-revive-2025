@@ -1,8 +1,11 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { CommonLayoutSize } from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
-import { useNavigate } from 'react-router-dom';
+
+import { TRANSITION_MESSAGE } from '../constants/loading.js';
 
 function LoadingTransitionPage() {
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ function LoadingTransitionPage() {
       <LoaderStyle>
         <BounceLoader LoaderStyle color='#13061c' cssOverride={{}} loading size={90} speedMultiplier={0.5} />
       </LoaderStyle>
-      <Text>내게 꼭 맞는 말씀을 찾았습니다.</Text>
+      <Text>{TRANSITION_MESSAGE}</Text>
     </CommonLayoutSize>
   );
 }
@@ -32,6 +35,10 @@ const LoaderStyle = styled.div`
 `;
 
 const Text = styled.p`
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 17px;
+
+  color: #272727;
+  font-size: 17px;
+  font-weight: 400;
 `;

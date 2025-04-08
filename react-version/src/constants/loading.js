@@ -9,4 +9,6 @@ const LOADER = {
   SPEED: 0.9,
 };
 
-export { LOADING, LOADER };
+const TRANSITION_MESSAGE = '내게 꼭 맞는 말씀을 찾았습니다.';
+
+export { LOADING, LOADER, TRANSITION_MESSAGE };
