@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { CommonLayoutSize } from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
 import { ReactTyped } from 'react-typed';
 
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { LOADING, LOADER } from '../constants/loading.js';
 
 function LoadingIntroPage() {
   const navigate = useNavigate();
@@ -12,22 +14,17 @@ function LoadingIntroPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/loadingTransition');
-    }, 6000);
+    }, LOADING.DELAY);
   });
 
   return (
     <CommonLayoutSize>
-      <LoaderStyle>
-        <BounceLoader LoaderStyle color='#cdbbda' cssOverride={{}} loading size={90} speedMultiplier={0.9} />
-      </LoaderStyle>
+      <StyledLoader>
+        <BounceLoader color='#cdbbda' loading size={LOADER.SIZE} speedMultiplier={LOADER.SPEED} />
+      </StyledLoader>
 
       <div>
-        <StyledTyped
-          MiddleText
-          strings={['내게 맞는 새해 말씀을 불러오고 있어요!', '잠시만 기다려주세요...']}
-          typeSpeed={70}
-        />
-        <br />
+        <StyledTyped strings={LOADING.MESSAGES} typeSpeed={LOADING.TYPE_SPEED} />
       </div>
     </CommonLayoutSize>
   );
@@ -35,15 +32,16 @@ function LoadingIntroPage() {
 
 export default LoadingIntroPage;
 
-let StyledTyped = styled(ReactTyped)`
+const StyledTyped = styled(ReactTyped)`
   display: block;
   margin-top: 30px;
-  font-size: 15px;
+
   color: #444;
+  font-size: 15px;
   font-weight: 300;
 `;
 
-const LoaderStyle = styled.div`
+const StyledLoader = styled.div`
   padding-top: 250px;
   display: flex;
   justify-content: center;
