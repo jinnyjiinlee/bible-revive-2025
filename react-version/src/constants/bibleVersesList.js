@@ -1,5 +1,4 @@
-// 말씀 데이터
-export const bibleVersesList = [
+const bibleVersesList = [
   // 1
   {
     text: '내가 너로 큰 민족을 이루고\n네게 복을 주어\n네 이름을 창대케 하리니\n너는 복의 근원이 될찌라',
@@ -394,3 +393,5 @@ export const bibleVersesList = [
     reference: '요한계시록 3:20',
   },
 ];
+
+export default bibleVersesList;
