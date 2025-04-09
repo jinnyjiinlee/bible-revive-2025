@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CommonLayoutSize = styled.div`
+const CommonLayoutSize = styled.div`
   font-family: 'Pretendard';
   box-sizing: border-box;
   margin: auto;
@@ -12,3 +12,4 @@ export const CommonLayoutSize = styled.div`
   text-align: center;
 `;
 
+export default CommonLayoutSize;

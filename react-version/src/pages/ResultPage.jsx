@@ -1,17 +1,22 @@
-import styled from 'styled-components';
-import { CommonLayoutSize } from '../components/CommonLayout.jsx';
-import { bibleVersesList } from '../constants/bibleVersesList.js';
 import { useEffect, useState } from 'react';
-import html2canvas from 'html2canvas';
+import styled from 'styled-components';
+
+import CommonLayoutSize from '../components/CommonLayout.jsx';
+import bibleVersesList from '../constants/bibleVersesList.js';
+
 import { Link } from 'react-router-dom';
+import html2canvas from 'html2canvas';
 
 function ResultPage() {
   const [bibleVerse, setBibleVerse] = useState(null);
 
-  // 말씀 구절 랜덤으로 나오는 것
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
     setBibleVerse(bibleVersesList[randomIndex]);
+
+    if (window.Kakao && !window.Kakao.isInitialized()) {
+      window.Kakao.init('ee1c97242a0d1348b2b752a62187b335');
+    }
   }, []);
 
   const handleDownload = () => {
@@ -29,14 +34,6 @@ function ResultPage() {
     document.body.removeChild(link);
   };
 
-  useEffect(() => {
-    if (window.Kakao && !window.Kakao.isInitialized()) {
-      window.Kakao.init('ee1c97242a0d1348b2b752a62187b335');
-    }
-    // window.Kakao.init('ee1c97242a0d1348b2b752a62187b335');
-    // window.Kakao.isInitialized();
-  });
-
   const handleKakaoShare = () => {
     if (window.Kakao) {
       window.Kakao.Share.sendCustom({
@@ -53,22 +50,21 @@ function ResultPage() {
   return (
     <CommonLayoutSize id='capture'>
       <div>
-        <TopMainText>당신을 위한 말씀</TopMainText>
-        <TopSubText>이 말씀으로 새해를 더욱 은혜롭게 시작해보세요</TopSubText>
+        <Header>당신을 위한 말씀</Header>
+        <HeaderSubText>이 말씀으로 새해를 더욱 은혜롭게 시작해보세요</HeaderSubText>
       </div>
 
-      <VerseResultBox>
-        <VerseResultBoxHead>2025YEAR</VerseResultBoxHead>
-
+      <ContentContainer>
+        <YearText>2025YEAR</YearText>
         {bibleVerse && (
-          <BibleVersePrinting id='shareCapture'>
+          <BibleVerseText>
             <p style={{ fontSize: '15px', lineHeight: '1.5', color: '#333333' }}>{bibleVerse.text}</p>
             <p style={{ fontSize: '16px', color: '#35225a' }}>{bibleVerse.reference}</p>
-          </BibleVersePrinting>
+          </BibleVerseText>
         )}
-      </VerseResultBox>
+      </ContentContainer>
 
-      <ButtonWrapper>
+      <ButtonContainer>
         <Button onClick={handleKakaoShare}>
           <svg viewBox='0 0 24 24' fill='#5c3c2c' style={{ width: '18px', height: '18px', marginRight: '5px' }}>
             <path d='M12 2C6.48 2 2 6.05 2 10.8c0 3.39 2.35 6.33 5.77 7.87-.08.56-.51 3.53-.56 3.81 0 0-.01.07.03.1.04.03.1.01.1.01.13-.02 3.19-2.1 3.54-2.34.71.1 1.44.15 2.12.15 5.52 0 10-4.05 10-8.8C22 6.05 17.52 2 12 2z' />
@@ -91,40 +87,44 @@ function ResultPage() {
             다시
           </Button>
         </Link>
-      </ButtonWrapper>
+      </ButtonContainer>
     </CommonLayoutSize>
   );
 }
 
 export default ResultPage;
 
-const TopMainText = styled.h1`
+const Header = styled.h1`
   padding-top: 100px;
+
   font-weight: 600;
   color: #3a3939;
 `;
 
-const TopSubText = styled.p`
+const HeaderSubText = styled.p`
   padding-top: 10px;
+
   font-size: 15px;
   font-weight: 100;
   color: #3a3939;
 `;
 
-const VerseResultBox = styled.div`
+const ContentContainer = styled.div`
   padding-top: 1.5px;
   margin: 40px auto;
   background-color: white;
+
   width: 278px;
   height: 265px;
   border-radius: 20px;
 `;
 
-const VerseResultBoxHead = styled.div`
+const YearText = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
   padding-top: 1px;
   background: linear-gradient(135deg, #e5f2ff 20%, #ffe6f2 100%);
+
   width: 274px;
   height: 65px;
   line-height: 65px;
@@ -136,7 +136,6 @@ const VerseResultBoxHead = styled.div`
   letter-spacing: 10px;
 `;
 
-// TO-DO: 리펙토링
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -151,13 +150,13 @@ const Button = styled.button`
   border-width: 0px;
 `;
 
-const ButtonWrapper = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
 `;
 
-const BibleVersePrinting = styled.div`
+const BibleVerseText = styled.div`
   padding: 7px 30px 0 30px;
   word-break: keep-all;
 `;

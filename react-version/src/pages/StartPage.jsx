@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CommonLayoutSize } from '../components/CommonLayout.jsx';
+import CommonLayoutSize from '../components/CommonLayout.jsx';
 import { Link } from 'react-router-dom';
 
 function StartPage() {

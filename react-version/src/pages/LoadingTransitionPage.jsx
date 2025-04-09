@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { CommonLayoutSize } from '../components/CommonLayout.jsx';
+import CommonLayoutSize from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
 
 import { TRANSITION_MESSAGE } from '../constants/loading.js';
