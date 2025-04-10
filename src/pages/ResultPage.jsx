@@ -7,15 +7,16 @@ import bibleVersesList from '../constants/bibleVersesList.js';
 import { Link, useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 
+import { shareKakaoTalk } from '../services/kakaoTalkShareService.js';
+
 function ResultPage() {
   const [bibleVerse, setBibleVerse] = useState(null);
-  const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
-
   const currentUrl = useLocation();
   const parsedQuery = new URLSearchParams(currentUrl.search);
   const idFromUrl = parsedQuery.get('id');
 
   useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
     if (idFromUrl) {
       const sharedIndex = bibleVersesList.find((verse) => verse.id === Number(idFromUrl));
       setBibleVerse(sharedIndex);
@@ -43,15 +44,9 @@ function ResultPage() {
     document.body.removeChild(link);
   };
 
-  const handleKakaoShare = () => {
-    if (window.Kakao) {
-      window.Kakao.Share.sendCustom({
-        templateId: 118994,
-        templateArgs: {
-          MY_VERSE_BUTTON_URL: 'http://localhost:3000/',
-          RECEIVED_VERSE_BUTTON_URL: `result?id=${bibleVerse.id}`,
-        },
-      });
+  const handleKakaoTalkShare = () => {
+    if (bibleVerse) {
+      shareKakaoTalk(bibleVerse.id);
     }
   };
 
@@ -73,7 +68,7 @@ function ResultPage() {
       </ContentContainer>
 
       <ButtonContainer>
-        <Button onClick={handleKakaoShare}>
+        <Button onClick={handleKakaoTalkShare}>
           <svg viewBox='0 0 24 24' fill='#5c3c2c' style={{ width: '18px', height: '18px', marginRight: '5px' }}>
             <path d='M12 2C6.48 2 2 6.05 2 10.8c0 3.39 2.35 6.33 5.77 7.87-.08.56-.51 3.53-.56 3.81 0 0-.01.07.03.1.04.03.1.01.1.01.13-.02 3.19-2.1 3.54-2.34.71.1 1.44.15 2.12.15 5.52 0 10-4.05 10-8.8C22 6.05 17.52 2 12 2z' />
           </svg>
@@ -146,12 +141,16 @@ const YearText = styled.div`
 `;
 
 const Button = styled.button`
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 73px;
   height: 35px;
+  color: #5c3c2c;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 35px;
   border-radius: 80px;
 

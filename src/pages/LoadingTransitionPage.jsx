@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import CommonLayoutSize from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
 
-import { TRANSITION_MESSAGE } from '../constants/loading.js';
+import { TRANSITION_MESSAGE } from '../constants/loadingSettings.js';
 
 function LoadingTransitionPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       navigate('/result');
     }, 3000);
   });
