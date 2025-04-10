@@ -14,17 +14,6 @@ function App() {
         <Route path='/loadingTransition' element={<LoadingTransitionPage />} />
         <Route path='/result' element={<ResultPage />} />
       </Routes>
-
-      {/* StartPage */}
-      {/* 1) StartPage.jsx안에 컴포넌트를 만들기 */}
-      {/* <StartPage /> */}
-
-      {/* LoadingPage */}
-      {/* <LoadingIntroPage /> */}
-      {/* <LoadingTransitionPage /> */}
-
-      {/* ResultPage  */}
-      {/* <ResultPage /> */}
     </div>
   );
 }
