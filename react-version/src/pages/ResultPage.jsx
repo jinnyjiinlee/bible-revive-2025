@@ -4,20 +4,29 @@ import styled from 'styled-components';
 import CommonLayoutSize from '../components/CommonLayout.jsx';
 import bibleVersesList from '../constants/bibleVersesList.js';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 
 function ResultPage() {
   const [bibleVerse, setBibleVerse] = useState(null);
+  const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
+
+  const currentUrl = useLocation();
+  const parsedQuery = new URLSearchParams(currentUrl.search);
+  const idFromUrl = parsedQuery.get('id');
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
-    setBibleVerse(bibleVersesList[randomIndex]);
+    if (idFromUrl) {
+      const sharedIndex = bibleVersesList.find((verse) => verse.id === Number(idFromUrl));
+      setBibleVerse(sharedIndex);
+    } else {
+      setBibleVerse(bibleVersesList[randomIndex]);
+    }
 
     if (window.Kakao && !window.Kakao.isInitialized()) {
       window.Kakao.init('ee1c97242a0d1348b2b752a62187b335');
     }
-  }, []);
+  }, [idFromUrl]);
 
   const handleDownload = () => {
     html2canvas(document.getElementById('capture')).then((canvas) => {
@@ -39,13 +48,12 @@ function ResultPage() {
       window.Kakao.Share.sendCustom({
         templateId: 118994,
         templateArgs: {
-          title: '당신을 위한 말씀',
-          description: '뽑아보세요!',
+          MY_VERSE_BUTTON_URL: 'http://localhost:3000/',
+          RECEIVED_VERSE_BUTTON_URL: `result?id=${bibleVerse.id}`,
         },
       });
     }
   };
-  // <!-- templateId: 118994, -->
 
   return (
     <CommonLayoutSize id='capture'>
