@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path='/' element={<StartPage />} />
         <Route path='/loadingInt' element={<LoadingIntroPage />} />
-
         <Route path='/loadingTransition' element={<LoadingTransitionPage />} />
         <Route path='/result' element={<ResultPage />} />
       </Routes>
