@@ -6,7 +6,7 @@ import CommonLayoutSize from '../components/CommonLayout.jsx';
 import { BounceLoader } from 'react-spinners';
 import { ReactTyped } from 'react-typed';
 
-import { LOADING, LOADER } from '../constants/loading.js';
+import { LOADING, LOADER } from '../constants/loadingSettings.js';
 
 function LoadingIntroPage() {
   const navigate = useNavigate();
