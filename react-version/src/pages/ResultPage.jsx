@@ -103,7 +103,7 @@ function ResultPage() {
 export default ResultPage;
 
 const Header = styled.h1`
-  padding-top: 100px;
+  padding-top: 50px;
 
   font-weight: 600;
   color: #3a3939;
@@ -118,8 +118,9 @@ const HeaderSubText = styled.p`
 `;
 
 const ContentContainer = styled.div`
+  margin: 50px auto;
   padding-top: 1.5px;
-  margin: 40px auto;
+
   background-color: white;
 
   width: 278px;
