@@ -1,6 +1,24 @@
 import styled from 'styled-components';
 
-const CommonLayoutSize = styled.div`
+function CommonLayoutSize({ children }) {
+  return (
+    <CenteredWrapper>
+      <LayoutBox>{children}</LayoutBox>
+    </CenteredWrapper>
+  );
+}
+
+export default CommonLayoutSize;
+
+const CenteredWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  height: 100vh;      
+`;
+
+const LayoutBox = styled.div`
   font-family: 'Pretendard';
   box-sizing: border-box;
   margin: auto;
@@ -11,5 +29,3 @@ const CommonLayoutSize = styled.div`
   border-radius: 8px;
   text-align: center;
 `;
-
-export default CommonLayoutSize;
