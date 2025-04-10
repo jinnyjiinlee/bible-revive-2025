@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+안녕하세요! 
+먼저 코드 리뷰에 시간을 내 주셔서 진심으로 감사드립니다.
+아래에는 프로젝트 소개와 코드 리뷰를 받고 싶은 부분들을 정리해 두었습니다.
+요청 드린 항목 외에도 코드를 살펴보시다가 개선이 필요하다고 느끼시는 부분이 있다면 자유롭게 피드백 부탁드리겠습니다!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 📖 말씀새록 2025 – 랜덤 성경 말씀 추첨 웹앱
 
-In the project directory, you can run:
+> “2025년, 하나님이 내게 주시는 한 구절의 말씀.”  
+말씀새록은 새해를 시작하며 개인에게 맞는 **성경 말씀을 랜덤으로 추첨**해주는 웹 서비스입니다.  
+기존 종이 뽑기의 감성을 디지털로 옮겨와, 누구나 모바일에서 쉽게 사용할 수 있도록 구현했습니다.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ 주요 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 성경 말씀 뽑기
+- 말씀 결과 이미지 저장 (html2canvas)
+- 카카오톡 커스텀 메시지 공유
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ 기술 스택
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React
+- JavaScript (ES6+)
+- HTML / CSS
+- styled-components
+- React Router
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠 사용한 도구 및 라이브러리
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- html2canvas (이미지 저장 기능)
+- Kakao JavaScript SDK (카카오톡 공유)
+- Google Analytics (방문자 분석)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 배포 및 환경
 
-## Learn More
+- Netlify (정적 호스팅)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🔍 리뷰 받고 싶은 포인트
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 1. 폴더·파일 구조 & 의존성 분리
 
-### Advanced Configuration
+- 현업자 기준으로 보았을 때 폴더, 파일 구조가 직관적인지 궁금합니다.
+- 기능별로 잘 나누어졌는지, 불필요하거나 겹치는 폴더/파일은 없는지 검토 부탁드립니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 2. 컴포넌트 설계 & 재사용성
 
-### Deployment
+- 리액트 컨테이너 패턴을 잘 지켰는지, 로직과 UI가 알맞게 분리되었는지 궁금합니다.
+- `ResultPage`에 로직이 몰려 있습니다. 더 작은 컴포넌트나 custom hook으로 분리하는 편이 나을지, 아니면 오히려 코드가 쪼개져 가독성이 떨어질지 의견이 궁금합니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 3. 페이지 흐름·라우팅
 
-### `npm run build` fails to minify
+- 페이지를 `StartingPage → LoadingIntroPage → LoadingTransitionPage → ResultPage`처럼 세분화했는데, 과도한 분리인지 혹은 읽기 쉬운 구조인지 피드백 부탁드립니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 4. React 사용 방식 전반
+
+- React를 처음 도입하며 작성했는데, 실무자 입장에서 바라보았을 때 어색한 부분이 있는지 편하게 피드백 부타드립니다.
+- 상태 관리, prop 전달, `useEffect` 사용 등에서 개선할 점이 있으면 알려주시면 감사하겠습니다.
+
+### 5. DOM 직접 조작 (`getElementById`, `html2canvas`)
+
+- `html2canvas`로 DOM을 캡처하는 방식이 실무에서도 흔히 쓰이는 패턴인지 궁금합니다.
+
+### 6. API 값 상수 분리
+
+- 현재 `Kakao API Key`, `Google Analytics Key`를 코드에 직접 작성해두었습니다.
+- 이런 값들을 외부 상수로 분리하는 것이 바람직한지, 서비스 규모에 따라 어떻게 관리하면 좋을지도 궁금합니다.
+
+
+
