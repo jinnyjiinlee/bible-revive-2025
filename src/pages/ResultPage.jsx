@@ -9,13 +9,12 @@ import html2canvas from 'html2canvas';
 
 function ResultPage() {
   const [bibleVerse, setBibleVerse] = useState(null);
-  const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
-
   const currentUrl = useLocation();
   const parsedQuery = new URLSearchParams(currentUrl.search);
   const idFromUrl = parsedQuery.get('id');
 
   useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * bibleVersesList.length);
     if (idFromUrl) {
       const sharedIndex = bibleVersesList.find((verse) => verse.id === Number(idFromUrl));
       setBibleVerse(sharedIndex);

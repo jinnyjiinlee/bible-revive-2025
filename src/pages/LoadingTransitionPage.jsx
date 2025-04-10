@@ -11,7 +11,7 @@ function LoadingTransitionPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       navigate('/result');
     }, 3000);
   });

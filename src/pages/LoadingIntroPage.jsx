@@ -12,7 +12,7 @@ function LoadingIntroPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       navigate('/loadingTransition');
     }, LOADING.DELAY);
   });
