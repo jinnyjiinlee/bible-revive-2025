@@ -151,7 +151,7 @@ const Button = styled.button`
 
   width: 73px;
   height: 35px;
-  color: '#5c3c2c';
+  color: #5c3c2c;
   line-height: 35px;
   border-radius: 80px;
 
