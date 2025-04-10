@@ -145,6 +145,7 @@ const YearText = styled.div`
 `;
 
 const Button = styled.button`
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
