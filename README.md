@@ -1,86 +1,108 @@
-안녕하세요! 
-먼저 코드 리뷰에 시간을 내 주셔서 진심으로 감사드립니다.
-아래에는 프로젝트 소개와 코드 리뷰를 받고 싶은 부분들을 정리해 두었습니다.
-요청 드린 항목 외에도 코드를 살펴보시다가 개선이 필요하다고 느끼시는 부분이 있다면 자유롭게 피드백 부탁드리겠습니다!
+# ✨ 말씀새록 2025 (Bible Revive 2025)
+
+## 🧭 About the Project
+**말씀새록 2025**는 새해를 말씀으로 시작할 수 있도록 돕는 랜덤 말씀 카드 웹 앱입니다.  
+(Bible Revive 2025 is a New Year’s scripture card web app that helps people begin the year with encouragement and reflection.)
+
+교회에서 연초에 말씀을 뽑던 전통을 디지털화하여, 누구나 모바일로 간편하게 말씀을 받고 바로 공유할 수 있도록 제작했습니다.  
+(Inspired by traditional church practices of selecting a verse at the start of each year, this tool modernizes the experience with mobile-first design and instant sharing features.)
 
 
-# 📖 말씀새록 2025 – 랜덤 성경 말씀 추첨 웹앱
 
-> “2025년, 하나님이 내게 주시는 한 구절의 말씀.”  
-말씀새록은 새해를 시작하며 개인에게 맞는 **성경 말씀을 랜덤으로 추첨**해주는 웹 서비스입니다.  
-기존 종이 뽑기의 감성을 디지털로 옮겨와, 누구나 모바일에서 쉽게 사용할 수 있도록 구현했습니다.
+## Summary
+- **출시일:** 2024년 12월 29일 (Dec 29, 2024)  
+- **사용자 수:** 출시 3일 만에 4,000명 이상 사용 (4,000+ in 3 days)  
+- **사용된 국가:** 한국, 미국, 독일, 인도네시아, 브라질 등  
+  (South Korea, U.S., Germany, Indonesia, Brazil, and more)  
+- **개발자:** 이지인 1인 개발  
+  (Designed, built, and maintained by Lee Ji IN)
+
+
+
+## 🛠 Tech Stack
+- **프론트엔드 (Frontend):** React, JavaScript, CSS  
+- **도구 (Tools):** html2canvas, KakaoTalk Share API, Google Analytics  
+- **호스팅 (Hosting):** Netlify
+
+
+
+## 🌟 Key Features
+- **랜덤 말씀 추첨**  
+  10가지 주제별 100개 이상의 말씀  
+  (Random Scripture Drawing: Over 100 Bible verses categorized into 10 themes)
+
+- **이미지 저장 기능**  
+  말씀 카드를 PNG 이미지로 저장  
+  (Save as Image: Capture and save scripture card as PNG)
+
+- **카카오톡 공유 기능**  
+  뽑은 말씀을 Kakao Talk 으로 공유 가능
+  (KakaoTalk Sharing)
+
+
+
+
+## Outcome
+- 유료 광고 없이 카카오톡 공유만으로 3일 만에 4,000명 도달  
+  (Reached 4,000+ users in 3 days via KakaoTalk sharing and no paid marketing)
+
+
+
+
+## 💬 Improvements from User Feedback
+- 📲 **공유 기능 개선 — 말씀 고유 링크 전송 기능 추가**  
+  기존에는 카카오톡으로 공유 시 서비스 홈 링크만 전달되어 **공유한 말씀 내용이 재현되지 않았습니다.**  
+  사용자 요청에 따라, **내가 뽑은 말씀이 그대로 상대방에게도 보이도록 URL에 verse ID를 포함하는 기능**을 추가했습니다.  
+  (Improved KakaoTalk sharing: now includes a unique verse ID in the shared URL so the recipient sees the exact same scripture.)
+
+- 👓 **폰트 및 배경 스타일 개선**  
+  사용자들이 “배경이 너무 튀어요”, “글자가 잘 안 보여요”라는 피드백을 주셨습니다.  
+  이에 따라 전체 UI에 **깔끔한 그라디언트 배경**과 **가독성 높은 prestandard 한글 폰트**를 적용했습니다.  
+  (Applied a calm gradient background and a softer, more legible Korean font based on user feedback.)
+
+- 💾 **이미지 저장 UX 개선**  
+  “이미지 저장이 어려워요”라는 의견에 따라 **다운로드 버튼**을 새롭게 추가하였습니다.
+  (Added a download button for saving images.)
+
+
+## 💡 배운 점 (What I Learned)
+- **기획 → 개발 → 배포 경험**  
+  Figma 와이어프레임을 React 컴포넌트로 구현하고 Netlify로 자동 배포 파이프라인을 구축했습니다.  
+  (Built an end‑to‑end flow from Figma design to React components and automated Netlify deployment.)
+
+- **카카오톡 공유 이미지 파이프라인 직접 구현**  
+  html2canvas로 DOM을 캡처해 Blob/Data URL을 생성한 뒤, Kakao JavaScript SDK(`window.Kakao.Share.sendCustom`)로 바로 전송했습니다.  
+  (Implemented a full pipeline: html2canvas → Kakao API)
+
+- **Google Analytics 연동 및 데이터 분석**  
+  분석 프로그램을 코드에 연동하여 실시간으로 사용자 데이터를 확인할 수 있게 설정하였습니다. 
+  (The analysis program is linked to the code to enable real-time user data verification.)
+
+- **GitHub PR 트러블슈팅과 리베이스 학습**  
+  커밋 히스토리 불일치로 PR이 거부된 원인을 파악하였습니다. 
+  (Learned to align commit history for clean PRs.)
+
+- **React 레이아웃·네비게이션 핵심 개념 숙달**  
+  container vs wrapper 패턴을 구분하고 `styled-components`로 CSS‑in‑JS를 적용했으며, `ReactTyped`와 `useNavigate`를 활용해 애니메이션·라우팅을 구현했습니다.  
+  (Deepened understanding of layout patterns, CSS‑in‑JS, animation libraries, and router hooks.)
+
+- **감성적이고 직관적인 UI/UX의 중요성 체감**  
+  둥근 한글 폰트 적용, 100vh 중앙 정렬 등 미세한 UI 디테일이 사용자 만족도를 크게 향상시킨다는 것을 경험했습니다.  
+  (Confirmed the impact of micro‑UX tweaks—fonts, alignment—on perceived quality.)
+
+- **사용자 피드백 루프 완주 경험**  
+  Google Form으로 의견을 수집하고, 기능을 개선한 뒤 재배포·재설문까지 3회 반복하며 빠른 개선 사이클을 완주했습니다.  
+  (Completed multiple feedback cycles, turning qualitative comments into shipped features.)
+
+
+
+## 📸 Screenshots
+<img width="1209" alt="스크린샷 2025-04-11 오후 4 16 40" src="https://github.com/user-attachments/assets/3a53848d-d699-40f3-8c76-d0fe99e27416" />
+<img width="1209" alt="스크린샷 2025-04-11 오후 4 17 03" src="https://github.com/user-attachments/assets/7119f9ad-aa3e-4b3a-b9a6-654666dc4930" />
+
 
 ---
 
-## ✨ 주요 기능
-
-- 성경 말씀 뽑기
-- 말씀 결과 이미지 저장 (html2canvas)
-- 카카오톡 커스텀 메시지 공유
-
-
-
----
-
-## ⚙️ 기술 스택
-
-- React
-- JavaScript (ES6+)
-- HTML / CSS
-- styled-components
-- React Router
-
-
----
-
-## 🛠 사용한 도구 및 라이브러리
-
-- html2canvas (이미지 저장 기능)
-- Kakao JavaScript SDK (카카오톡 공유)
-- Google Analytics (방문자 분석)
-
----
-
-## 🚀 배포 및 환경
-
-- Netlify (정적 호스팅)
-
-
-
-
----
-
-## 🔍 리뷰 받고 싶은 포인트
-
-
-
-### 1. 폴더·파일 구조 & 의존성 분리
-
-- 현업자 기준으로 보았을 때 폴더, 파일 구조가 직관적인지 궁금합니다.
-- 기능별로 잘 나누어졌는지, 불필요하거나 겹치는 폴더/파일은 없는지 검토 부탁드립니다.
-
-### 2. 컴포넌트 설계 & 재사용성
-
-- 리액트 컨테이너 패턴을 잘 지켰는지, 로직과 UI가 알맞게 분리되었는지 궁금합니다.
-- `ResultPage`에 로직이 몰려 있습니다. 더 작은 컴포넌트나 custom hook으로 분리하는 편이 나을지, 아니면 오히려 코드가 쪼개져 가독성이 떨어질지 의견이 궁금합니다.
-
-### 3. 페이지 흐름·라우팅
-
-- 페이지를 `StartingPage → LoadingIntroPage → LoadingTransitionPage → ResultPage`처럼 세분화했는데, 과도한 분리인지 혹은 읽기 쉬운 구조인지 피드백 부탁드립니다.
-
-### 4. React 사용 방식 전반
-
-- React를 처음 도입하며 작성했는데, 실무자 입장에서 바라보았을 때 어색한 부분이 있는지 편하게 피드백 부타드립니다.
-- 상태 관리, prop 전달, `useEffect` 사용 등에서 개선할 점이 있으면 알려주시면 감사하겠습니다.
-
-### 5. DOM 직접 조작 (`getElementById`, `html2canvas`)
-
-- `html2canvas`로 DOM을 캡처하는 방식이 실무에서도 흔히 쓰이는 패턴인지 궁금합니다.
-
-### 6. API 값 상수 분리
-
-- 현재 `Kakao API Key`, `Google Analytics Key`를 코드에 직접 작성해두었습니다.
-- 이런 값들을 외부 상수로 분리하는 것이 바람직한지, 서비스 규모에 따라 어떻게 관리하면 좋을지도 궁금합니다.
-
-
+## 🔗 Try It Out  
+[https://bible-revive-2025.netlify.app/](https://bible-revive-2025.netlify.app/)
 
